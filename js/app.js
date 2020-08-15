@@ -1,7 +1,13 @@
-if(navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
-}
+var url = window.location.href;
+var pathSW = '/twittor/sw.js';
 
+if(navigator.serviceWorker) {
+    if( url.includes( 'localhost' ) ) {
+        pathSW = '/sw.js';
+    }
+
+    navigator.serviceWorker.register( pathSW );
+}
 
 // Referencias de jQuery
 
